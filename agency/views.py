@@ -75,7 +75,7 @@ def eventpost(request):
             cmk = ['email','phone','name','year','branch','wat','college']
             for key in post:
                 if key not in cmk:
-                    event+=key+' '
+                    event+=key
                     print(key)
 
             Registration.objects.create(name=name,email=email,number=number,year=year,branch=branch,wat=wat,college=college,event=event)
