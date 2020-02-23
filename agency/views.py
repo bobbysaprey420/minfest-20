@@ -76,8 +76,10 @@ def eventpost(request):
             for key in post:
                 if key not in cmk:
                     event+=key+' '
+                    print(key)
 
             Registration.objects.create(name=name,email=email,number=number,year=year,branch=branch,wat=wat,college=college,event=event)
+            print(event)
             subject = 'Event Registration'
             body =\
             'Congrats '+name+''',
