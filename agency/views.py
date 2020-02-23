@@ -78,7 +78,8 @@ def eventpost(request):
                     event+=key
                     print(key)
 
-            Registration.objects.create(name=name,email=email,number=number,year=year,branch=branch,wat=wat,college=college,event=event)
+            reg_ins = Registration.objects.create(name=name,email=email,number=number,year=year,branch=branch,wat=wat,college=college,event=event)
+            reg_ins.save()
             print(event)
             subject = 'Event Registration'
             body =\
