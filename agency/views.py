@@ -71,22 +71,11 @@ def eventpost(request):
             branch = post.get('branch')
             wat = post.get('wat')
             college = post.get('college')
-            intrigue = post.get('intrigue')
-            simulation = post.get('simulation')
-            paper = post.get('paper')
-            mensura = post.get('mensura')
-            geocarter = post.get('geocarter')
-            innotech = post.get('innotech')
-            recondite = post.get('recondite')
-            industrail = post.get('industrial')
-            workshops = post.get('workshops')
-            event =''
-            even_name=['intrigue','simulation','paper','mensura','geocarter','recondite','innotech','industrail','workshops']
-            events = [intrigue,simulation,paper,mensura,geocarter,recondite,innotech,industrail,workshops]
-
-            for i in range(len(events)):
-                if events[i] =='on':
-                    event = event+even_name[i]+' '
+            event = ''
+            cmk = ['email','phone','name','year','branch','wat','college']
+            for key in post:
+                if key not in cmk and len(key)<=30:
+                    event+=key+' '
 
             Registration.objects.create(name=name,email=email,number=number,year=year,branch=branch,wat=wat,college=college,event=event)
             subject = 'Event Registration'
